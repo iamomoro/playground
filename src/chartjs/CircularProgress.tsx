@@ -112,7 +112,7 @@ const CircularProgress: React.FC = () => {
       >
         {average}%
       </div>
-    </>
+    </div>
   );
 };
 
