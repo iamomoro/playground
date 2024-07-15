@@ -2,9 +2,15 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 
+// Register necessary Chart.js components
 Chart.register(ArcElement, Tooltip, Legend);
 
+/**
+ * CircularProgress Component
+ * This component renders a circular progress chart with labels and a percentage in the center.
+ */
 const CircularProgress: React.FC = () => {
+  // Chart data and configurations
   const data = {
     labels: ["LS", "CR", "PP", "ES", "RR", "DP", "AR", "CP"],
     datasets: [
@@ -27,7 +33,7 @@ const CircularProgress: React.FC = () => {
   };
 
   const options = {
-    cutout: "88%", // This creates the hole in the middle
+    cutout: "88%", // Creates the hole in the middle
     rotation: -90, // Start angle for the first segment
     circumference: 360, // Full circle
     plugins: {
@@ -40,6 +46,7 @@ const CircularProgress: React.FC = () => {
     },
   };
 
+  // Calculate label positions around the doughnut
   const radius = 110; // Radius for positioning labels outside the doughnut
   const centerX = 100; // Center X coordinate
   const centerY = 100; // Center Y coordinate
@@ -58,18 +65,16 @@ const CircularProgress: React.FC = () => {
   const total = data.datasets[0].data.reduce((acc, value) => acc + value, 0);
   const average = parseInt((total / data.datasets[0].data.length).toFixed(0));
 
-  let textColor;
-  let backgroundColor;
-  if (average >= 70 && average <= 100) {
-    textColor = "#23B00C"; // Green
-    backgroundColor = "#1AAB0242"; // Green
-  } else if (average >= 40 && average < 70) {
-    textColor = "#F2BB36"; // Yellow
-    backgroundColor = "#F2BB3624"; // Yellow
-  } else {
-    textColor = "#FA4545"; // Red
-    backgroundColor = "#FA454542"; // Red
-  }
+  // Determine text and background colors based on the average
+  const { textColor, backgroundColor } = (() => {
+    if (average >= 70 && average <= 100) {
+      return { textColor: "#23B00C", backgroundColor: "#1AAB0242" };
+    } else if (average >= 40 && average < 70) {
+      return { textColor: "#F2BB36", backgroundColor: "#F2BB3624" };
+    } else {
+      return { textColor: "#FA4545", backgroundColor: "#FA454542" };
+    }
+  })();
 
   return (
     <div style={{ position: "relative", width: 200, height: 200 }}>
@@ -106,7 +111,6 @@ const CircularProgress: React.FC = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          // height:"50%",
           borderRadius: "50%",
         }}
       >
