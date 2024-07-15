@@ -10,7 +10,16 @@ const CircularProgress: React.FC = () => {
     datasets: [
       {
         data: [12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5],
-        backgroundColor: ['#4CAF50', '#FFC107', '#FF5722', '#FFEB3B', '#CDDC39', '#FF9800', '#F44336', '#9C27B0'],
+        backgroundColor: [
+          '#4CAF50',
+          '#FFC107',
+          '#FF5722',
+          '#FFEB3B',
+          '#CDDC39',
+          '#FF9800',
+          '#fa1100',
+          '#9C27B0',
+        ],
         borderWidth: 1,
       },
     ],
@@ -30,7 +39,7 @@ const CircularProgress: React.FC = () => {
     },
   };
 
-  const radius = 100; // Adjust this to position labels outside the doughnut
+  const radius = 110; // Adjust this to position labels outside the doughnut
   const centerX = 100; // Center X coordinate
   const centerY = 100; // Center Y coordinate
 
@@ -45,28 +54,33 @@ const CircularProgress: React.FC = () => {
     <div style={{ position: 'relative', width: 200, height: 200 }}>
       <Doughnut data={data} options={options} />
       {labelsPosition.map((pos, index) => (
-        <div key={index} style={{
-          position: 'absolute',
-          left: `${pos.x}px`, // Use pixel values for accurate positioning
-          top: `${pos.y}px`, // Use pixel values for accurate positioning
-          transform: 'translate(-50%, -50%)',
-          fontSize: '12px',
-          fontWeight: 'bold',
-          color: 'black',
-          textAlign: 'center',
-          whiteSpace: 'nowrap',
-        }}>
+        <div
+          key={index}
+          style={{
+            position: 'absolute',
+            left: `${pos.x}px`, // Use pixel values for accurate positioning
+            top: `${pos.y}px`, // Use pixel values for accurate positioning
+            transform: 'translate(-50%, -50%)',
+            fontSize: '12px',
+            fontWeight: 'bold',
+            color: 'black',
+            textAlign: 'center',
+            whiteSpace: 'nowrap',
+          }}
+        >
           {pos.label}
         </div>
       ))}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        fontSize: '24px',
-        color: '#4CAF50',
-      }}>
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '24px',
+          color: '#4CAF50',
+        }}
+      >
         60%
       </div>
     </div>

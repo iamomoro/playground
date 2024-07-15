@@ -1,5 +1,5 @@
 import './App.css';
-import CircularProgress from './CircularProgress';
+import CircularProgress from './chartjs/CircularProgress';
 
 function App() {
 
