@@ -17,7 +17,7 @@ const CircularProgress: React.FC = () => {
           '#FFEB3B',
           '#CDDC39',
           '#FF9800',
-          '#fa1100',
+          '#F44336',
           '#9C27B0',
         ],
         borderWidth: 1,
@@ -26,7 +26,7 @@ const CircularProgress: React.FC = () => {
   };
 
   const options = {
-    cutout: '75%', // Adjust this to create the desired hole size in the middle
+    cutout: '70%', // This creates the hole in the middle
     rotation: -90, // Start angle for the first segment
     circumference: 360, // Full circle
     plugins: {
@@ -39,16 +39,23 @@ const CircularProgress: React.FC = () => {
     },
   };
 
-  const radius = 110; // Adjust this to position labels outside the doughnut
+  const radius = 110; // Radius for positioning labels outside the doughnut
   const centerX = 100; // Center X coordinate
   const centerY = 100; // Center Y coordinate
 
   const labelsPosition = data.labels.map((label, index) => {
-    const angle = (index / data.labels.length) * 2 * Math.PI - Math.PI / 2;
+    const startAngle = (index / data.labels.length) * 2 * Math.PI - Math.PI / 2;
+    const endAngle =
+      ((index + 1) / data.labels.length) * 2 * Math.PI - Math.PI / 2;
+    const angle = (startAngle + endAngle) / 2;
     const x = centerX + Math.cos(angle) * radius;
     const y = centerY + Math.sin(angle) * radius;
     return { label, x, y };
   });
+
+  // Calculate the average of the data
+  const total = data.datasets[0].data.reduce((acc, value) => acc + value, 0);
+  const average = (total / data.datasets[0].data.length).toFixed(2);
 
   return (
     <div style={{ position: 'relative', width: 200, height: 200 }}>
@@ -58,8 +65,8 @@ const CircularProgress: React.FC = () => {
           key={index}
           style={{
             position: 'absolute',
-            left: `${pos.x}px`, // Use pixel values for accurate positioning
-            top: `${pos.y}px`, // Use pixel values for accurate positioning
+            left: `${pos.x}px`,
+            top: `${pos.y}px`,
             transform: 'translate(-50%, -50%)',
             fontSize: '12px',
             fontWeight: 'bold',
@@ -78,10 +85,14 @@ const CircularProgress: React.FC = () => {
           left: '50%',
           transform: 'translate(-50%, -50%)',
           fontSize: '24px',
-          color: '#4CAF50',
+          color: '#09ff11',
+          // background: '#4caf4f63',
+          // width: '100%',
+          // height: '100%',
+          // alignItems: 'center'
         }}
       >
-        60%
+        {average}%
       </div>
     </div>
   );
