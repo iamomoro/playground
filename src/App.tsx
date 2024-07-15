@@ -1,5 +1,6 @@
 import './App.css';
 import CircularProgress from './chartjs/CircularProgress';
+import CustomLineChart from './rechart/customLineChart/CustomLineChart';
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
         {/* <CircularProgressBarWithLabels value={60} /> */}
       </div>
       <CircularProgress />
+      <div></div>
+      <CustomLineChart />
     </>
   );
 }
