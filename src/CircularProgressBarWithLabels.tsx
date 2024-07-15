@@ -59,7 +59,7 @@ const CircularProgress: React.FC = () => {
             pathColor: '#4CAF50',
             textColor: '#4CAF50',
             trailColor: 'transparent',
-            backgroundColor: '#f0f0f0',
+            backgroundColor: '#000000',
           })}
         />
       </div>
