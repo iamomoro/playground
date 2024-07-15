@@ -20,13 +20,15 @@ const CircularProgress: React.FC = () => {
           '#F44336',
           '#9C27B0',
         ],
-        borderWidth: 1,
+        borderWidth: 2,
+        borderColor: '#fff',
+        borderRadius: 50,
       },
     ],
   };
 
   const options = {
-    cutout: '70%', // This creates the hole in the middle
+    cutout: '85%', // This creates the hole in the middle
     rotation: -90, // Start angle for the first segment
     circumference: 360, // Full circle
     plugins: {
