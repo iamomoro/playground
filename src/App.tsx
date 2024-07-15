@@ -1,9 +1,8 @@
-import './App.css';
-import CircularProgress from './chartjs/CircularProgress';
-import CustomLineChart from './rechart/customLineChart/CustomLineChart';
+import "./App.css";
+import CircularProgress from "./chartjs/CircularProgress";
+import CustomLineChart from "./rechart/customLineChart/CustomLineChart";
 
 function App() {
-
   return (
     <>
       <div>
@@ -11,8 +10,9 @@ function App() {
         {/* <CircularProgressBarWithLabels value={60} /> */}
       </div>
       <CircularProgress />
-      <div></div>
-      <CustomLineChart />
+      <div className="tw-border tw-w-[400px] tw-aspect-square tw-mt-8">
+        <CustomLineChart />
+      </div>
     </>
   );
 }

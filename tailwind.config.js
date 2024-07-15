@@ -2,14 +2,15 @@
 export default {
   prefix: 'tw-',
   content: [
-    './src/**/*.{js,jsx,ts,tsx}',
-    './public/index.html',
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./public/index.html",
 
     // Support for Vite
-    './index.html',
+    "./index.html",
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-};
+}
+
