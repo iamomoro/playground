@@ -60,7 +60,7 @@ const CircularProgress: React.FC = () => {
   const average = (total / data.datasets[0].data.length).toFixed(2);
 
   return (
-    <div style={{ position: 'relative', width: 200, height: 200 }}>
+    < style={{ position: 'relative', width: 200, height: 200 }}>
       <Doughnut data={data} options={options} />
       {labelsPosition.map((pos, index) => (
         <div
@@ -96,7 +96,7 @@ const CircularProgress: React.FC = () => {
       >
         {average}%
       </div>
-    </div>
+    </>
   );
 };
 
