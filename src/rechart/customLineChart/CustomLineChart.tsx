@@ -14,10 +14,10 @@ Chart.register(LineElement, CategoryScale, LinearScale, PointElement, Filler);
 
 const CustomLineChart = () => {
   const data = {
-    labels: ['', '', '', '', ''],
+    labels: ['', '', '', '', '', '', ''],
     datasets: [
       {
-        data: [5, 10, 5, 7, 2],
+        data: [0, 10, 5, 15, 9, 30],
         borderColor: 'rgba(255,0,0,1)',
         backgroundColor: 'rgba(255,0,0,0.2)',
         fill: true,
