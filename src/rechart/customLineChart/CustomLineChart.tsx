@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // The above line disables the ESLint rule that disallows the use of the any type in TypeScript.
-// It's useful here because we have a context parameter in our animation callback which is of type any.
+
 import { Line } from 'react-chartjs-2';
 // Importing the Line component from 'react-chartjs-2', which is a React wrapper for Chart.js.
 
@@ -60,16 +60,32 @@ const CustomLineChart = () => {
         enabled: false,
       },
       // Disabling tooltips.
+      datalabels: {
+        display: false,
+      },
+      // Ensuring datalabels are disabled.
     },
     scales: {
       x: {
         display: false,
+        ticks: {
+          display: false,
+        },
+        grid: {
+          display: false,
+        },
       },
-      // Hiding the x-axis.
+      // Hiding the x-axis and its labels.
       y: {
         display: false,
+        ticks: {
+          display: false,
+        },
+        grid: {
+          display: false,
+        },
       },
-      // Hiding the y-axis.
+      // Hiding the y-axis and its labels.
     },
     elements: {
       line: {
